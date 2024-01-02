@@ -1,0 +1,14 @@
+// cria o banco de dados
+CREATE DATABASE sistemaacademico;
+
+
+// usa o banco de dados
+USE sistemaacademico;
+
+
+// cria a tabela aluno
+CREATE TABLE aluno(ra INTEGER(11) NOT NULL PRIMARY KEY, nome VARCHAR(150), data VARCHAR(15), cpf VARCHAR(25), email VARCHAR(250), endereco VARCHAR(250), municipio VARCHAR(150), uf VARCHAR(5), celular VARCHAR(25), curso VARCHAR(250), campos VARCHAR(250), periodo VARCHAR(150), imagem BLOB);
+
+
+// cria a tabela de faltas e notas com o relacionamento da tabela aluno
+CREATE TABLE faltasnotas(ra_aluno INTEGER(11), curso VARCHAR(250), disciplina VARCHAR(250), semestre VARCHAR(150), nota INTEGER(50),faltas INTEGER(50), FOREIGN KEY (ra_aluno) REFERENCES aluno(ra) ON DELETE CASCADE);
